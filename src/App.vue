@@ -5,11 +5,11 @@
       <div class="container">
           <div class="row ">
             <div class="col-sm-9">
-              <Inventory :items="items"></Inventory>
+              <Inventory @addItemEvent="addItem" :items="items"></Inventory>
             </div>
 
             <div class="col-sm-3">
-              <Cart></Cart>
+              <Cart :items="cart"></Cart>
           </div>
           </div>
       </div>
@@ -26,6 +26,7 @@ export default {
      data(){
        return {
          items: [],
+         cart: [],
        }
      },
      components: {
@@ -36,6 +37,11 @@ export default {
      mounted(){
        this.items = data
        
+     },
+     methods:{
+       addItem(item){
+         this.cart.push(item)
+       }
      }
 }
 </script>

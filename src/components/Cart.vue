@@ -1,18 +1,32 @@
 <template>
      <ul class="list-group">
-                <li class="list-group-item">Item1 - Price</li>
-                <li class="list-group-item">Item2 - Price</li>
-                <li class="list-group-item">Item3 - Price</li>
+                <li class="list-group-item" >  
+                  <span class="item-name"> Item Name</span>
+                  <span class="item-price pull-right">Price</span>
+                </li>
+                 <hr>
+                 <li class="list-group-item" v-for="(item,index) in items" :key="index">  
+                  <span class="item-name">{{ item.title }}</span>
+                  <span class="item-price pull-right">{{ item.price }}</span>
+                </li>
+                <hr>
+                <li class="list-group-item">  
+                  <span class="item-name">Total</span>
+                  <span class="item-price pull-right">10$</span>
+                </li>
               </ul>
 </template>
 
 
  <script>
  export default {
-     
+     props: ['items']
  }
  </script>
 
  <style >
- 
+ .item-name{
+  font-size: 20px;
+  margin-right: 20px;
+ }
  </style>
