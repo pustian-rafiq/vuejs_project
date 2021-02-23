@@ -9,7 +9,7 @@
             </div>
 
             <div class="col-sm-3">
-              <Cart :items="cart"></Cart>
+              <Cart @removedItem="itemRemoved" :items="cart"></Cart>
           </div>
           </div>
       </div>
@@ -41,6 +41,9 @@ export default {
      methods:{
        addItem(item){
          this.cart.push(item)
+       },
+       itemRemoved(item){
+         this.cart.splice(item,1)
        }
      }
 }
