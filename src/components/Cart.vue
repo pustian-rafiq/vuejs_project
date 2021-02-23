@@ -13,7 +13,7 @@
                 <hr>
                 <li class="list-group-item">  
                   <span class="item-name">Total</span>
-                  <span class="item-price pull-right">10$</span>
+                  <span class="item-price pull-right">${{ totalCost }}</span>
                 </li>
               </ul>
 </template>
@@ -25,6 +25,15 @@
      methods:{
        itemRemoved(item){
          this.$emit('removedItem',item)
+       }
+     },
+     computed:{
+       totalCost(){
+         var total = 0
+         this.items.forEach(item => {
+           total += parseFloat(item.price)
+         })
+         return total
        }
      }
  }
